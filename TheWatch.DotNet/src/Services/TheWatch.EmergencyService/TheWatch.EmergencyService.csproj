@@ -1,8 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\TheWatch.Domain\TheWatch.Domain.csproj" />
-    <ProjectReference Include="..\..\Common\TheWatch.Application\TheWatch.Application.csproj" />
-    <ProjectReference Include="..\..\Common\TheWatch.ServiceDefaults\TheWatch.ServiceDefaults.csproj" />
-    <PackageReference Include="Swashbuckle.AspNetCore" />
-  </ItemGroup>
-</Project>
