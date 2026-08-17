@@ -1,3 +1,13 @@
+// <copyright file="AuthService.cs" company="The Watch, LLC">
+// Copyright (c) 2026 Barton Milnor Mallory, The Watch, LLC. All rights reserved.
+// </copyright>
+
+/// <summary>
+/// Source file: src/Services/AuthService.cs
+/// Module: Enterprise Microservices, BFF Gateway & Tactical Dispatch
+/// Defines: interface IAuthService, class AuthService
+/// Namespace: TheWatch.Services
+/// </summary>
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;

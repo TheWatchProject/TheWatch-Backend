@@ -1,3 +1,13 @@
+// <copyright file="DispatchHub.cs" company="The Watch, LLC">
+// Copyright (c) 2026 Barton Milnor Mallory, The Watch, LLC. All rights reserved.
+// </copyright>
+
+/// <summary>
+/// Source file: src/Services/TheWatch.MobileBff/Hubs/DispatchHub.cs
+/// Module: Enterprise Microservices, BFF Gateway & Tactical Dispatch
+/// Defines: class DispatchHub
+/// Namespace: TheWatch.MobileBff.Hubs
+/// </summary>
 using Microsoft.AspNetCore.SignalR;
 using TheWatch.Contracts;
 

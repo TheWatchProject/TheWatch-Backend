@@ -1,3 +1,13 @@
+// <copyright file="MeshSyncService.cs" company="The Watch, LLC">
+// Copyright (c) 2026 Barton Milnor Mallory, The Watch, LLC. All rights reserved.
+// </copyright>
+
+/// <summary>
+/// Source file: src/Services/MeshSyncService.cs
+/// Module: Enterprise Microservices, BFF Gateway & Tactical Dispatch
+/// Defines: interface IMeshSyncService, class MeshSyncService
+/// Namespace: TheWatch.Services
+/// </summary>
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

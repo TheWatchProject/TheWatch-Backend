@@ -1,3 +1,13 @@
+// <copyright file="Program.cs" company="The Watch, LLC">
+// Copyright (c) 2026 Barton Milnor Mallory, The Watch, LLC. All rights reserved.
+// </copyright>
+
+/// <summary>
+/// Source file: src/Services/TheWatch.MobileBff/Program.cs
+/// Module: Enterprise Microservices, BFF Gateway & Tactical Dispatch
+/// Defines: record CalculateRouteRequest, record JoinCrowdEventRequest, record VolunteerDetectionReport
+/// Namespace: TheWatch
+/// </summary>
 using TheWatch.Domain.Entities;
 using TheWatch.Infrastructure.Security;
 using TheWatch.ServiceDefaults;

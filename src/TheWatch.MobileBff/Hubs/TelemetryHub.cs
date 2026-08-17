@@ -1,3 +1,13 @@
+// <copyright file="TelemetryHub.cs" company="The Watch, LLC">
+// Copyright (c) 2026 Barton Milnor Mallory, The Watch, LLC. All rights reserved.
+// </copyright>
+
+/// <summary>
+/// Source file: src/Services/TheWatch.MobileBff/Hubs/TelemetryHub.cs
+/// Module: Enterprise Microservices, BFF Gateway & Tactical Dispatch
+/// Defines: class TelemetryHub
+/// Namespace: TheWatch.MobileBff.Hubs
+/// </summary>
 using Microsoft.AspNetCore.SignalR;
 using TheWatch.Contracts;
 

@@ -1,3 +1,13 @@
+// <copyright file="EmergencyRealTimeHub.cs" company="The Watch, LLC">
+// Copyright (c) 2026 Barton Milnor Mallory, The Watch, LLC. All rights reserved.
+// </copyright>
+
+/// <summary>
+/// Source file: src/Services/TheWatch.MobileBff/EmergencyRealTimeHub.cs
+/// Module: Enterprise Microservices, BFF Gateway & Tactical Dispatch
+/// Defines: class EmergencyRealTimeHub
+/// Namespace: TheWatch.MobileBff
+/// </summary>
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;

@@ -1,3 +1,13 @@
+// <copyright file="SwarmOrchestration.cs" company="The Watch, LLC">
+// Copyright (c) 2026 Barton Milnor Mallory, The Watch, LLC. All rights reserved.
+// </copyright>
+
+/// <summary>
+/// Source file: src/Services/TheWatch.MobileBff/Swarm/SwarmOrchestration.cs
+/// Module: Enterprise Microservices, BFF Gateway & Tactical Dispatch
+/// Defines: class SwarmOptions, record SwarmDomainDefinition, interface ISwarmExecutionProvider
+/// Namespace: TheWatch.MobileBff.Swarm
+/// </summary>
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Net.Http.Json;

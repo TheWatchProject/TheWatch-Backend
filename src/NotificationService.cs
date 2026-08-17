@@ -1,3 +1,13 @@
+// <copyright file="NotificationService.cs" company="The Watch, LLC">
+// Copyright (c) 2026 Barton Milnor Mallory, The Watch, LLC. All rights reserved.
+// </copyright>
+
+/// <summary>
+/// Source file: src/Services/NotificationService.cs
+/// Module: Enterprise Microservices, BFF Gateway & Tactical Dispatch
+/// Defines: interface INotificationService, class NotificationService
+/// Namespace: TheWatch.Services
+/// </summary>
 using System.Threading.Tasks;
 
 namespace TheWatch.Services
