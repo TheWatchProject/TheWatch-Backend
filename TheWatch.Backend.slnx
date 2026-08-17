@@ -1,0 +1,24 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="TheWatch.DotNet/src/Orchestration/TheWatch.AppHost/TheWatch.AppHost.csproj" />
+    <Project Path="TheWatch.DotNet/src/Common/TheWatch.ServiceDefaults/TheWatch.ServiceDefaults.csproj" />
+    <Project Path="TheWatch.DotNet/src/Services/TheWatch.MobileBff/TheWatch.MobileBff.csproj" />
+    <Project Path="TheWatch.DotNet/src/Services/TheWatch.EmergencyService/TheWatch.EmergencyService.csproj" />
+    <Project Path="TheWatch.DotNet/src/Serverless/TheWatch.Functions/TheWatch.Functions.csproj" />
+    <Project Path="TheWatch.DotNet/src/Common/TheWatch.Infrastructure/TheWatch.Infrastructure.csproj" />
+    <Project Path="TheWatch.DotNet/src/Libraries/TheWatch.Geospatial.Db/TheWatch.Geospatial.Db.csproj" />
+    <Project Path="TheWatch.DotNet/src/Libraries/TheWatch.Security/TheWatch.Security.csproj" />
+    <Project Path="TheWatch.DotNet/src/Libraries/TheWatch.Core.Messaging/TheWatch.Core.Messaging.csproj" />
+  </Folder>
+  <Folder Name="/microservices/">
+    <Project Path="TheWatch.Microservices/src/IncidentService/IncidentService.csproj" />
+    <Project Path="TheWatch.Microservices/src/DispatchService/DispatchService.csproj" />
+    <Project Path="TheWatch.Microservices/src/LocationService/LocationService.csproj" />
+    <Project Path="TheWatch.Microservices/src/NotificationService/NotificationService.csproj" />
+    <Project Path="TheWatch.Microservices/src/TriageService/TriageService.csproj" />
+    <Project Path="TheWatch.Microservices/src/AuditService/AuditService.csproj" />
+    <Project Path="TheWatch.Microservices/src/AuthService/AuthService.csproj" />
+    <Project Path="TheWatch.Microservices/src/AiInferenceService/AiInferenceService.csproj" />
+    <Project Path="TheWatch.Microservices/src/MeshGatewayService/MeshGatewayService.csproj" />
+  </Folder>
+</Solution>

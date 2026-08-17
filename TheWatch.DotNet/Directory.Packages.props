@@ -1,0 +1,115 @@
+<Project>
+  <ItemGroup>
+    <!-- Aspire & Orchestration -->
+    <PackageVersion Include="Aspire.Hosting.AppHost" Version="9.0.0" />
+    <PackageVersion Include="Aspire.Hosting.PostgreSQL" Version="9.0.0" />
+    <PackageVersion Include="Aspire.Hosting.Redis" Version="9.0.0" />
+    <PackageVersion Include="Aspire.Hosting.RabbitMQ" Version="9.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="8.2.0" />
+    <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="8.0.0" />
+
+    <!-- OpenTelemetry & Observability -->
+    <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.7.1" />
+    <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.7.1" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.7.1" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="1.7.1" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.7.0" />
+
+    <!-- Clean Architecture Core -->
+    <PackageVersion Include="MediatR" Version="12.2.0" />
+    <PackageVersion Include="FluentValidation" Version="11.9.0" />
+    <PackageVersion Include="FluentValidation.AspNetCore" Version="11.3.0" />
+
+    <!-- EF Core & Caching -->
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.2" />
+    <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
+    <PackageVersion Include="StackExchange.Redis" Version="2.7.20" />
+
+    <!-- Gateway & Dapr -->
+    <PackageVersion Include="Yarp.ReverseProxy" Version="2.1.0" />
+    <PackageVersion Include="Dapr.AspNetCore" Version="1.13.0" />
+    <PackageVersion Include="Dapr.Client" Version="1.13.0" />
+    <PackageVersion Include="Azure.Identity" Version="1.11.0" />
+    <PackageVersion Include="Azure.Security.KeyVault.Secrets" Version="4.6.0" />
+
+    <!-- Serverless Azure Functions -->
+    <PackageVersion Include="Microsoft.Azure.Functions.Worker" Version="2.52.0" />
+    <PackageVersion Include="Microsoft.Azure.Functions.Worker.Sdk" Version="2.1.0" />
+    <PackageVersion Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.3.0" />
+    <PackageVersion Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="2.1.1" />
+    <PackageVersion Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.18.0" />
+
+    <!-- UI & Clients -->
+    <PackageVersion Include="Radzen.Blazor" Version="4.28.0" />
+    <PackageVersion Include="MudBlazor" Version="6.17.0" />
+    <PackageVersion Include="Microsoft.Maui.Controls" Version="8.0.7" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="8.0.7" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+
+    <!-- Tests -->
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageVersion Include="xunit" Version="2.7.0" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.7" />
+    <PackageVersion Include="FluentAssertions" Version="6.12.0" />
+    <PackageVersion Include="Moq" Version="4.20.70" />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.2" />
+
+    <!-- Roslyn (Analyzers & Generators) -->
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.6.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.6.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="5.6.0" />
+    <!-- Machine Learning (ML.NET) -->
+    <PackageVersion Include="Microsoft.ML" Version="3.0.1" />
+    <PackageVersion Include="Microsoft.ML.TimeSeries" Version="3.0.1" />
+    <PackageVersion Include="Microsoft.ML.FastTree" Version="3.0.1" />
+
+    <!-- Other Packages -->
+    <PackageVersion Include="Microsoft.Maui.Essentials" Version="8.0.7" />
+    <PackageVersion Include="Microsoft.Extensions.Localization" Version="8.0.2" />
+    <PackageVersion Include="Spectre.Console" Version="0.48.0" />
+    <PackageVersion Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="8.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
+    <PackageVersion Include="Azure.Messaging.ServiceBus" Version="7.18.2" />
+    <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" />
+    <PackageVersion Include="Microsoft.Azure.Cosmos" Version="3.47.0" />
+    <PackageVersion Include="Azure.Storage.Blobs" Version="12.23.0" />
+    <PackageVersion Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageVersion Include="Polly" Version="8.4.2" />
+    <PackageVersion Include="Polly.Extensions.Http" Version="3.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Polly" Version="8.0.2" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.OpenApi" Version="2.0.0-preview.11" />
+    <PackageVersion Include="Microsoft.OpenApi.Readers" Version="2.0.0-preview.11" />
+    <PackageVersion Include="YamlDotNet" Version="15.1.2" />
+    <PackageVersion Include="Microsoft.SqlServer.TransactSql.ScriptDom" Version="161.9100.0" />
+    <PackageVersion Include="CsvHelper" Version="32.0.3" />
+    <PackageVersion Include="GraphQL-Parser" Version="9.4.0" />
+    <PackageVersion Include="AngleSharp" Version="1.1.2" />
+    <PackageVersion Include="Scriban" Version="5.9.1" />
+    <PackageVersion Include="Spectre.Console.Cli" Version="0.48.0" />
+  
+    <PackageVersion Include="Microsoft.OpenApi" Version="2.0.0-preview.11" />
+    <PackageVersion Include="Microsoft.OpenApi.Readers" Version="2.0.0-preview.11" />
+    <PackageVersion Include="YamlDotNet" Version="15.1.2" />
+    <PackageVersion Include="Microsoft.SqlServer.TransactSql.ScriptDom" Version="161.9100.0" />
+    <PackageVersion Include="CsvHelper" Version="32.0.3" />
+    <PackageVersion Include="GraphQL-Parser" Version="9.4.0" />
+    <PackageVersion Include="AngleSharp" Version="1.1.2" />
+    <PackageVersion Include="Scriban" Version="6.0.0" />
+    <PackageVersion Include="Spectre.Console.Cli" Version="0.48.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="9.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.0" />
+
+      <PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.0" />
+  </ItemGroup>
+</Project>

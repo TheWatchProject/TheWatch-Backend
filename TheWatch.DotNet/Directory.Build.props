@@ -1,0 +1,42 @@
+<Project>
+  <PropertyGroup>
+    <!-- .NET Stack First: Target .NET 10 & C# 13/14 Latest -->
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>13.0</LangVersion>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    
+    <!-- Compiler Documentation Settings -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    
+    <!-- NuGet Package Metadata Standards -->
+    <Authors>TheWatch Engineering Squads</Authors>
+    <Company>TheWatch Platform</Company>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/thewatch/thewatch-platform</RepositoryUrl>
+    <PackageProjectUrl>https://thewatch.internal</PackageProjectUrl>
+    <PackageTags>thewatch;emergency;dispatch;dapr;aspire;cloud-native;mesh</PackageTags>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)artifacts/packages</PackageOutputPath>
+
+    <!-- High-Performance & Deterministic CI Builds -->
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true' Or '$(TF_BUILD)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <CompilerVisibleProperty Include="TheWatchGeneratedCapabilities" />
+    <CompilerVisibleProperty Include="TheWatchGeneratedCapabilityBundles" />
+    <CompilerVisibleProperty Include="MSBuildProjectName" />
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)TheWatch.Capabilities.plan"
+                     Condition="Exists('$(MSBuildThisFileDirectory)TheWatch.Capabilities.plan')" />
+  </ItemGroup>
+  <ItemGroup Condition="Exists('$(MSBuildThisFileDirectory)TheWatch.Capabilities.plan') and '$(MSBuildProjectName)' != 'TheWatch.Roslyn.Generators' and '$(MSBuildProjectName)' != 'TheWatch.Roslyn.Generators.Tests'">
+    <ProjectReference Include="$(MSBuildThisFileDirectory)src/Tools/TheWatch.Roslyn/TheWatch.Roslyn.Generators/TheWatch.Roslyn.Generators.csproj"
+                      OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="false" />
+  </ItemGroup>
+</Project>
