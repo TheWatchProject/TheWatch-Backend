@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\TheWatch.Domain\TheWatch.Domain.csproj" />
+    <ProjectReference Include="..\..\Common\TheWatch.Infrastructure\TheWatch.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Common\TheWatch.ServiceDefaults\TheWatch.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\..\Libraries\TheWatch.Contracts\TheWatch.Contracts.csproj" />
+    <ProjectReference Include="..\..\Libraries\TheWatch.Geospatial.Db\TheWatch.Geospatial.Db.csproj" />
+    <PackageReference Include="Swashbuckle.AspNetCore" />
+  </ItemGroup>
+</Project>
