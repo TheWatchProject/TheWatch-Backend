@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <IsAspireHost>true</IsAspireHost>
+    <AspireHostingSDKVersion>9.0.0</AspireHostingSDKVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" />
+    <PackageReference Include="Aspire.Hosting.Redis" />
+    <PackageReference Include="Aspire.Hosting.RabbitMQ" />
+    
+    <!-- Gateways & BFF -->
+    <ProjectReference Include="..\..\Gateways\TheWatch.ApiGateway\TheWatch.ApiGateway.csproj" />
+    <ProjectReference Include="..\..\Services\TheWatch.MobileBff\TheWatch.MobileBff.csproj" />
+    <ProjectReference Include="..\..\Services\TheWatch.EmergencyService\TheWatch.EmergencyService.csproj" />
+    
+    <!-- Serverless & Admin UI -->
+    <ProjectReference Include="..\..\Serverless\TheWatch.Functions\TheWatch.Functions.csproj" />
+    <ProjectReference Include="..\..\Clients\TheWatch.Web.Admin\TheWatch.Web.Admin.csproj" />
+
+    <!-- Microservices: TheWatch.Microservices is a sibling of TheWatch.DotNet.
+         Use $(MSBuildThisFileDirectory) to anchor the path at this .csproj file's
+         directory, then walk up four levels (AppHost -> Orchestration -> src ->
+         TheWatch.DotNet -> workspace root) and into the sibling project tree. -->
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\..\TheWatch.Microservices\src\IncidentService\IncidentService.csproj" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\..\TheWatch.Microservices\src\DispatchService\DispatchService.csproj" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\..\TheWatch.Microservices\src\LocationService\LocationService.csproj" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\..\TheWatch.Microservices\src\NotificationService\NotificationService.csproj" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\..\TheWatch.Microservices\src\TriageService\TriageService.csproj" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\..\TheWatch.Microservices\src\AuditService\AuditService.csproj" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\..\TheWatch.Microservices\src\AuthService\AuthService.csproj" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\..\TheWatch.Microservices\src\AiInferenceService\AiInferenceService.csproj" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\..\..\TheWatch.Microservices\src\MeshGatewayService\MeshGatewayService.csproj" />
+  </ItemGroup>
+</Project>

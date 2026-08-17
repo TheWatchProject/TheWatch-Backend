@@ -1,0 +1,29 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond": 20,
+        "excludedTypes": "Request"
+      }
+    },
+    "logLevel": {
+      "default": "Information",
+      "Microsoft.EntityFrameworkCore": "Warning"
+    }
+  },
+  "extensions": {
+    "serviceBus": {
+      "prefetchCount": 100,
+      "messageHandlerOptions": {
+        "maxConcurrentCalls": 32,
+        "autoComplete": false
+      }
+    }
+  },
+  "concurrency": {
+    "dynamicConcurrencyEnabled": true,
+    "maximumFunctionConcurrency": 500
+  }
+}

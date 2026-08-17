@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Services/">
+  <Project Path="src/IncidentService/IncidentService.csproj" />
+  <Project Path="src/DispatchService/DispatchService.csproj" />
+  <Project Path="src/LocationService/LocationService.csproj" />
+  <Project Path="src/NotificationService/NotificationService.csproj" />
+  <Project Path="src/TriageService/TriageService.csproj" />
+  <Project Path="src/AuditService/AuditService.csproj" />
+  <Project Path="src/AuthService/AuthService.csproj" />
+  <Project Path="src/AiInferenceService/AiInferenceService.csproj" />
+  <Project Path="src/MeshGatewayService/MeshGatewayService.csproj" />
+  </Folder>
+</Solution>
