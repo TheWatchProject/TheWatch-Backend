@@ -1,0 +1,34 @@
+# OS files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+
+# Editors & IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*.user
+*.suo
+*.userosscache
+*.userprefs
+*.dbmdl
+
+# Build outputs
+bin/
+obj/
+**/bin/
+**/obj/
+TestResults/
+artifacts/
+
+# Secrets & Environment
+*.env*
+!.env.example
+!.env.template
+
+# Logs & Temp
+*.log
+*.tmp
+*.temp
