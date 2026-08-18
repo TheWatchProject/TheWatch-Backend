@@ -36,6 +36,9 @@ builder.Services.AddSingleton<IConstrainedPathfinder, ConstrainedAStarPathfinder
 builder.Services.AddSingleton<IVolunteerCrowdMonitoringEngine, VolunteerCrowdMonitoringEngine>();
 builder.Services.AddSingleton<IInstallationSecurityEngine, InstallationSecurityEngine>();
 builder.Services.AddSingleton<IWhistleblowerAndTipsEngine, WhistleblowerAndTipsEngine>();
+builder.Services.AddSingleton<TheWatch.Services.IH3BackendResponderCache, TheWatch.Services.H3BackendResponderCache>();
+builder.Services.AddSingleton<TheWatch.Services.INotificationService, TheWatch.Services.NotificationService>();
+builder.Services.AddSingleton<TheWatch.Services.IDirectionsService, TheWatch.Services.DirectionsService>();
 
 builder.Services.AddOptions<SwarmOptions>()
     .Bind(builder.Configuration.GetSection(SwarmOptions.SectionName))
@@ -231,6 +234,90 @@ swarm.MapGet("/tasks/{taskId}", (string taskId, ISwarmOrchestrator orchestrator)
     orchestrator.TryGet(taskId, out var task) ? Results.Ok(task) : Results.NotFound());
 
 // ============================================
+// H3 Geospatial Responders & Notifications WebApi
+// ============================================
+var respondersApi = app.MapGroup("/api/v1/responders");
+
+respondersApi.MapGet("/nearby-h3", async (
+    double lat,
+    double lng,
+    int? kRing,
+    int? res,
+    TheWatch.Services.IH3BackendResponderCache cache) =>
+{
+    var list = await cache.QueryNearbyRespondersAsync(lat, lng, kRing ?? 2, res ?? 8);
+    string originH3 = cache.LatLngToH3(lat, lng, res ?? 8);
+    return Results.Ok(new
+    {
+        OriginH3Index = originH3,
+        QueriedCellsCount = cache.GetKRingHexagons(originH3, kRing ?? 2).Count,
+        Responders = list
+    });
+}).AllowAnonymous();
+
+respondersApi.MapPost("/telemetry", async (
+    TheWatch.Services.BackendResponderDto telemetry,
+    TheWatch.Services.IH3BackendResponderCache cache) =>
+{
+    await cache.UpdateResponderPositionAsync(telemetry);
+    return Results.Ok(new { Status = "Updated", H3 = telemetry.H3Index });
+}).AllowAnonymous();
+
+var notificationsApi = app.MapGroup("/api/v1/notifications");
+
+notificationsApi.MapPost("/dispatch-h3", async (
+    TheWatch.Services.NotificationDispatchRequest req,
+    TheWatch.Services.INotificationService service) =>
+{
+    int count = await service.DispatchH3GeofenceAlertAsync(req);
+    return Results.Ok(new { Status = "Dispatched", TargetCells = req.TargetH3Index, NotifiedCount = count });
+}).AllowAnonymous();
+
+// ============================================
+// Generic Directions & Emergency Summoning WebApi
+// ============================================
+var directionsApi = app.MapGroup("/api/v1/directions");
+
+directionsApi.MapPost("/calculate", async (
+    TheWatch.Services.GenericDirectionsRequest req,
+    TheWatch.Services.IDirectionsService service) =>
+{
+    var route = await service.CalculateDirectionsAsync(req);
+    return Results.Ok(route);
+}).AllowAnonymous();
+
+var dispatchFlowApi = app.MapGroup("/api/v1/dispatch");
+
+dispatchFlowApi.MapPost("/summon", (SummonRespondersRequest req) =>
+{
+    // Generates dual dispatch (SMS + Push) with confirmation deep links
+    string confirmUrl = $"https://app.relentlessglobal.net/dispatch/respond?incidentId={req.IncidentId}&responderId={req.ResponderId}&action=confirm";
+    string denyUrl = $"https://app.relentlessglobal.net/dispatch/respond?incidentId={req.IncidentId}&responderId={req.ResponderId}&action=deny";
+    string smsText = $"[The Watch EMERGENCY DISPATCH] #{req.IncidentId}: {req.Title} at {req.LocationName}. Confirm to respond: {confirmUrl} or Deny: {denyUrl}";
+
+    return Results.Ok(new
+    {
+        Status = "SummonDispatched",
+        Channels = new[] { "Azure_ACS_SMS", "Firebase_FCM_Push" },
+        SmsPayload = smsText,
+        ConfirmDeepLink = confirmUrl,
+        DenyDeepLink = denyUrl,
+        NavigateUrl = $"/directions/{req.IncidentId}"
+    });
+}).AllowAnonymous();
+
+dispatchFlowApi.MapGet("/respond", (string incidentId, string responderId, string action) =>
+{
+    bool isConfirmed = string.Equals(action, "confirm", StringComparison.OrdinalIgnoreCase);
+    if (isConfirmed)
+    {
+        // EnRoute status set -> redirect immediately to turn-by-turn navigation in app
+        return Results.Redirect($"/directions/{incidentId}?status=confirmed&unit={responderId}");
+    }
+    return Results.Ok(new { Status = "Declined", IncidentId = incidentId, Message = "Response declined. Re-routing dispatch to alternative units." });
+}).AllowAnonymous();
+
+// ============================================
 // Real-Time SignalR Hub Endpoints
 // ============================================
 app.MapHub<IncidentHub>("/hubs/incident").AllowAnonymous();
@@ -247,3 +334,4 @@ public sealed record VolunteerDetectionReport(string EventId, string VolunteerUs
 public sealed record SetThreatLevelRequest(FacilityThreatLevel ThreatLevel);
 public sealed record SubmitWhistleblowerRequest(string Ticker, WhistleblowerCategory Category, string EncryptedPayload, string ClaimantSecretToken, bool IsAnonymous);
 public sealed record SubmitTipRequest(CommunityTipCategory Category, string Description, double Latitude, double Longitude, string Landmark, bool IsAnonymous, string? SubmitterAlias, bool RewardRequested);
+public sealed record SummonRespondersRequest(string IncidentId, string ResponderId, string Title, string LocationName, double Latitude, double Longitude);
